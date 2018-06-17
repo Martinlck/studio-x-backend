@@ -10,6 +10,9 @@ module.exports = class GetAllUsers extends ActionHero.Action {
         this.description = 'retrieves all the users from the game';
     }
     
+    /**
+     * Shows example of response
+     */
     outputExample () {
         return {
             users : [
@@ -29,11 +32,21 @@ module.exports = class GetAllUsers extends ActionHero.Action {
         }
     }
     
+    /**
+     * Required inputs to run this request
+     * @returns {{}}
+     */
     inputs() {
         return {
         }
     }
     
+    /**
+     * Function which will be running when this particular request hits
+     * @param params
+     * @param response
+     * @returns {Promise.<void>}
+     */
     async run ({params, response}) {
         try {
             let userManager = new UserManager();

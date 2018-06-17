@@ -8,6 +8,11 @@ class UserManager {
     
     }
     
+    /**
+     * Asynchronous function which will create a new user with the given name
+     * @param name
+     * @returns {Promise.<User>}
+     */
     async createUser(name) {
         let user = new User({
             name : name
@@ -22,12 +27,22 @@ class UserManager {
         return user;
     }
     
+    /**
+     * Asynchronous function which will fetch user by userID
+     * @param userID
+     * @returns {Promise.<User>}
+     */
     async fetchUser(userID) {
         let key  = User.generateKey(userID);
         let userEntity = await api.datastore.getAsync(key);
         return new User(userEntity);
     }
     
+    /**
+     * Async function which will save the user
+     * @param user
+     * @returns {Promise.<*>}
+     */
     async saveUser(user) {
         let key  = User.generateKey(user.id);
         return api.datastore.saveAsync({
@@ -36,6 +51,12 @@ class UserManager {
         });
     }
     
+    /**
+     * Async function which will retrieve multiple users in batch.
+     * It also sanitize the information for friend related API's (this function is only used for that case)
+     * @param usersIds
+     * @returns {Promise.<Array>}
+     */
     async fetchUsersInBatch(usersIds) {
         let users = [];
         

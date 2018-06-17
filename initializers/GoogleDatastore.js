@@ -18,6 +18,9 @@ class DataStore extends Initializer {
         this.name = "Datastore";
     }
     
+    /**
+     * Method which will be called at the beginning of the server creation.
+     */
     async initialize() {
         
         // We make the datastore instance a singleton.
@@ -42,7 +45,7 @@ class DataStore extends Initializer {
     async start() {}
     
     /**
-     * Method which will be called when server is gracefully shut down
+     * Method which will be called when server is gracefully shutdown
      */
     async stop() {}
 }

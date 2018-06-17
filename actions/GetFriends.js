@@ -40,6 +40,12 @@ module.exports = class GetFriends extends ActionHero.Action {
         }
     }
     
+    /**
+     * Function which will be running when this particular request hits
+     * @param params
+     * @param response
+     * @returns {Promise.<void>}
+     */
     async run ({params, response}) {
         try {
             let userManager = new UserManager();

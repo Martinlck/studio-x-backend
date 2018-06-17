@@ -88,7 +88,13 @@ module.exports = class ShowDocumentation extends ActionHero.Action {
       }
     }
   }
-
+    /**
+     * Function which will be running when this particular request hits
+     * It will display all the current endpoints available.
+     * @param params
+     * @param response
+     * @returns {Promise.<void>}
+     */
   run ({response}) {
     const {documentation} = ActionHero.api
     response.documentation = documentation.documentation

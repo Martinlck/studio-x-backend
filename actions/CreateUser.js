@@ -12,18 +12,19 @@ module.exports = class CreateUser extends ActionHero.Action {
     }
     
     /**
-     *
-     * @returns {{user: {id: string, name: string}}}
+     * Shows example of response
      */
     outputExample () {
         return {
-            user : {
-                id : "18dd75e9-3d4a-48e2-bafc-3c8f95a8f0d1",
-                name : "John"
-            }
+            id : "18dd75e9-3d4a-48e2-bafc-3c8f95a8f0d1",
+            name : "John"
         }
     }
     
+    /**
+     *  Inputs required to run this request
+      * @returns {{name: {required: boolean}}}
+     */
     inputs() {
         return {
             name : {
@@ -32,6 +33,12 @@ module.exports = class CreateUser extends ActionHero.Action {
         }
     }
     
+    /**
+     * Function which will be running when this particular request hits
+     * @param params
+     * @param response
+     * @returns {Promise.<void>}
+     */
     async run ({params, response}) {
         try {
             let userManager = new UserManager();
