@@ -37,9 +37,4 @@ describe('Get friends for the specific user', () => {
         }
     })
     
-})
-
-
-
-//
-//
+});

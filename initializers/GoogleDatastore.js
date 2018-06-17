@@ -5,8 +5,6 @@ const Bluebird           = require('bluebird');
 // We import the data store
 const Datastore = require('@google-cloud/datastore');
 
-Bluebird.promisifyAll(Datastore);
-
 // Our Google Cloud Platform project ID
 const projectId = 'ah';
 
@@ -26,24 +24,16 @@ class DataStore extends Initializer {
         api.datastore = new Datastore({
             projectId: projectId,
         });
-       //
-       //  const key = api.datastore.key(['Company', 'Google']);
-       //
-       //  const data = {
-       //      name: 'Google',
-       //      location: 'CA'
-       //  };
-       //
-       //  await api.datastore.saveAsync({
-       //      key: key,
-       //      data: data
-       //  });
-       //
-       //
-       // let entity = await api.datastore.getAsync(key);
-       //
-       //  console.log("entity ", entity);
-    
+        
+        let saveAsync = Bluebird.promisify(api.datastore.save); // We promisify the functions we will use, to use latest nodejs v8 engine updates
+        let getAsync  = Bluebird.promisify(api.datastore.get);
+        let deleteAsync  = Bluebird.promisify(api.datastore.delete);
+        let runQueryAsync = Bluebird.promisify(api.datastore.runQuery, {multiArgs: true});
+        // we safely re-assign the promisified functions to their name with Async suffix
+        api.datastore.saveAsync = saveAsync;
+        api.datastore.getAsync  = getAsync;
+        api.datastore.runQueryAsync = runQueryAsync;
+        api.datastore.deleteAsync = deleteAsync;
     }
     
     /**

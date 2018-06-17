@@ -61,6 +61,35 @@ class UserManager {
         
         return users;
     }
+    
+    /**
+     * Optimized function to retrieve all users, I set 2 limit on purpose, to prove the optimization.
+     * Of course if there are millions of users this solution would still not scale, and the way of doing this would be
+     * sending the cursor hash to client, to be re-sent to retrieve more results.
+     * So it would be paginated, and would apply a greater limit, let's say 100 users on each batch
+     * @param cursor
+     * @returns {Promise.<Array>}
+     */
+    async fetchAllUsers(cursor) {
+        let query = api.datastore.createQuery('Users').limit(2);
+    
+        if(cursor !== undefined)
+            query.start(cursor);
+    
+        let [entities, info] = await api.datastore.runQueryAsync(query);
+        
+        let users = [];
+        
+        for (let e of entities)
+            users.push(new User(e));
+        
+        if (entities.length > 0) { // when no more results, we stop querying.
+            let nextCursorUsers = await this.fetchAllUsers(info.endCursor);
+            users = users.concat(nextCursorUsers);
+        }
+        
+        return users;
+    }
 }
 
 module.exports = UserManager;

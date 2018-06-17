@@ -33,9 +33,4 @@ describe('Save friends for the specific user', () => {
         let {error} = await api.specHelper.runAction('save_friends', {userID:mainUserID, friends: JSON.stringify(friends)});
         expect(error).toEqual('Error: The friend list sent by client is not reliable, some client is not registered in the game');
     })
-})
-
-
-
-//
-//
+});
