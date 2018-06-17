@@ -21,7 +21,7 @@ describe('Save friends for the specific user', () => {
         mainUserID = response.id;
     });
     test('should properly save friends for the user', async  () => {
-        await api.specHelper.runAction('save_friends', {userID:mainUserID, friends: JSON.stringify(friendIds)});
+        await api.specHelper.runAction('save_friends', {userID:mainUserID, friends: friendIds});
         let userManager = new UserManager();
         let userUpdated = await userManager.fetchUser(mainUserID);
         expect(userUpdated.friends.length).toEqual(10);
@@ -30,7 +30,7 @@ describe('Save friends for the specific user', () => {
     test('should throw error when trying to save a user that does not exist', async  () => {
         let uuid = uuidv4();
         let friends = [uuid];
-        let {error} = await api.specHelper.runAction('save_friends', {userID:mainUserID, friends: JSON.stringify(friends)});
+        let {error} = await api.specHelper.runAction('save_friends', {userID:mainUserID, friends: friends});
         expect(error).toEqual('Error: The friend list sent by client is not reliable, some client is not registered in the game');
     })
 });

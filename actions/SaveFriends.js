@@ -22,9 +22,6 @@ module.exports = class SaveFriends extends ActionHero.Action {
             },
             friends : {
                 required: true,
-                formatter: (param) => {
-                    return JSON.parse(param);
-                }
             }
         }
     }

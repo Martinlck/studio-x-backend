@@ -18,7 +18,7 @@ describe('Get friends for the specific user', () => {
         }
         let response =  await api.specHelper.runAction('create_user', {name:"John"});
         mainUserID = response.id;
-        await api.specHelper.runAction('save_friends', {userID:mainUserID, friends: JSON.stringify(friendIds)});
+        await api.specHelper.runAction('save_friends', {userID:mainUserID, friends: friendIds});
         for (let i = 0; i < friendIds.length; i++) {
             let friendId = friendIds[i];
             let score = i * 100;
