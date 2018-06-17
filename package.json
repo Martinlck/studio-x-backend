@@ -1,0 +1,27 @@
+{
+  "name": "studio-x-backend",
+  "version": "1.0.0",
+  "description": "Studio X backend",
+  "main": "index.js",
+  "scripts": {
+    "test": "NODE_PATH=. ./node_modules/.bin/jest",
+    "start": "NODE_PATH=. ./node_modules/actionhero/bin/actionhero start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Martinlck/studio-x-backend.git"
+  },
+  "author": "Martin Fidel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Martinlck/studio-x-backend/issues"
+  },
+  "homepage": "https://github.com/Martinlck/studio-x-backend#readme",
+  "dependencies": {
+    "@google-cloud/datastore": "^1.4.0",
+    "actionhero": "^19.0.2",
+    "bluebird": "^3.5.1",
+    "jest": "^23.1.0",
+    "uuid": "^3.2.1"
+  }
+}
