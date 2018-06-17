@@ -11,13 +11,12 @@ describe('Save game state for user', () => {
     
     beforeEach(async () => {
         let response =  await api.specHelper.runAction('create_user', {name:"John"});
-        userID = response.user.id;
+        userID = response.id;
         await api.specHelper.runAction('save_state', {userID:userID, gamesPlayed: 100, score: 10000});
     });
     test('should properly fetch game state from user', async  () => {
         let response = await api.specHelper.runAction('get_state', {userID:userID});
-        let gameState = response.game_state;
-        expect(gameState.gamesPlayed).toEqual(100);
-        expect(gameState.score).toEqual(10000);
+        expect(response.gamesPlayed).toEqual(100);
+        expect(response.score).toEqual(10000);
     })
 })

@@ -11,8 +11,7 @@ describe('Save game state for user', () => {
     afterAll(async () => { await actionhero.stop() });
     
     beforeEach(async () => {
-        let response =  await api.specHelper.runAction('create_user', {name:"John"});
-        user = response.user;
+        user =  await api.specHelper.runAction('create_user', {name:"John"});
     });
     test('should properly store game state to user', async  () => {
         await api.specHelper.runAction('save_state', {userID:user.id, gamesPlayed: 10, score: 1000});

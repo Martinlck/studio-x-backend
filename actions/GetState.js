@@ -12,10 +12,8 @@ module.exports = class GetState extends ActionHero.Action {
     
     outputExample () {
         return {
-            game_state : {
-                gamesPlayed: 10,
-                score: 100000
-            }
+            gamesPlayed: 10,
+            score: 100000
         }
     }
     
@@ -30,10 +28,10 @@ module.exports = class GetState extends ActionHero.Action {
     async run ({params, response}) {
         try {
             let userManager = new UserManager();
-            
             let user =  await userManager.fetchUser(params.userID);
-            
-            response.game_state = user.game_state.toJSON();
+            let jsonObject = user.game_state.toJSON();
+            response.gamesPlayed = jsonObject.gamesPlayed;
+            response.score = jsonObject.score;
         } catch (e) {
             response.error = e;
             api.log(e.message, "ERROR", e);

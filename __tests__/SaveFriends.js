@@ -14,11 +14,11 @@ describe('Save friends for the specific user', () => {
     beforeEach(async () => {
         for (let i = 0; i < 10; i++) {
             let response =  await api.specHelper.runAction('create_user', {name:"John" + i});
-            let userID = response.user.id;
+            let userID = response.id;
             friendIds.push(userID);
         }
         let response =  await api.specHelper.runAction('create_user', {name:"John"});
-        mainUserID = response.user.id;
+        mainUserID = response.id;
     });
     test('should properly save friends for the user', async  () => {
         await api.specHelper.runAction('save_friends', {userID:mainUserID, friends: JSON.stringify(friendIds)});

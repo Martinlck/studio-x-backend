@@ -10,7 +10,7 @@ describe('creates a user', () => {
     
     test('should properly create a user and save it into DB', async  () => {
        let response =  await api.specHelper.runAction('create_user', {name:"John"});
-       expect(response.user.id).not.toBe(undefined);
-       expect(response.user.name).toEqual("John");
+       expect(response.id).not.toBe(undefined);
+       expect(response.name).toEqual("John");
     })
 })

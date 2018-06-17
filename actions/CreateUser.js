@@ -11,6 +11,10 @@ module.exports = class CreateUser extends ActionHero.Action {
         this.description = 'creates a new user in the game';
     }
     
+    /**
+     *
+     * @returns {{user: {id: string, name: string}}}
+     */
     outputExample () {
         return {
             user : {
@@ -32,10 +36,8 @@ module.exports = class CreateUser extends ActionHero.Action {
         try {
             let userManager = new UserManager();
             let user =  await userManager.createUser(params.name);
-            response.user = {
-                id : user.id,
-                name: user.name
-            }
+            response.id = user.id;
+            response.name = user.name;
         } catch (e) {
             response.error = e;
             api.log(e.message, "ERROR", e);
