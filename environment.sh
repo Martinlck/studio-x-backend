@@ -11,7 +11,7 @@ usage() {
 start() {
   docker network create -d bridge --subnet=172.66.100.0/24 net
   docker run -d --name gds --network=net --hostname gds -p 8000:8000 google/cloud-sdk gcloud beta emulators datastore start --project=ah --host-port gds:8000 --no-store-on-disk
-  docker run -p 8080:8080 -d --name studio-x --network=net -e NODE_PATH=. -e DATASTORE_DATASET=ah -e DATASTORE_EMULATOR_HOST=gds:8000 -e DATASTORE_EMULATOR_HOST_PATH=gds:8000/datastore -e DATASTORE_HOST=http://gds:8000 -e DATASTORE_PROJECT_ID=ah studio-x
+  docker run -p 80:8080 -d --name studio-x --network=net -e NODE_PATH=. -e DATASTORE_DATASET=ah -e DATASTORE_EMULATOR_HOST=gds:8000 -e DATASTORE_EMULATOR_HOST_PATH=gds:8000/datastore -e DATASTORE_HOST=http://gds:8000 -e DATASTORE_PROJECT_ID=ah studio-x
   sleep 5
 }
 

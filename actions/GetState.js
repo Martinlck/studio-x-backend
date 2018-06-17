@@ -7,13 +7,14 @@ module.exports = class GetState extends ActionHero.Action {
     constructor () {
         super();
         this.name = 'get_state';
-        this.description = 'stores a game state object for specific user';
+        this.description = 'retrieves game state for specific user';
     }
     
     outputExample () {
         return {
             game_state : {
-            
+                gamesPlayed: 10,
+                score: 100000
             }
         }
     }

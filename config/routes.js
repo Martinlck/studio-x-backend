@@ -11,7 +11,8 @@ exports['default'] = {
       ],
         
       put : [
-          { path: '/user/:userID/state', action: 'save_state' }
+          { path: '/user/:userID/state', action: 'save_state' },
+          { path: '/user/:userID/friends', action: 'save_friends' }
       ]
       
       /* ---------------------

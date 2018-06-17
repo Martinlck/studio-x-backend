@@ -35,6 +35,28 @@ class UserManager {
             data: user.toJSON()
         });
     }
+    
+    async fetchUsersInBatch(usersIds) {
+        let users = [];
+        
+        let keys = [];
+        
+        for (let id of usersIds) {
+            let key = User.generateKey(id);
+            keys.push(key);
+        }
+        
+        let resultSet = await api.datastore.getAsync(keys);
+        
+        for (let result of resultSet ) {
+            let u = new User(result);
+            users.push(u);
+        }
+        
+        return users;
+        
+        
+    }
 }
 
 module.exports = UserManager;

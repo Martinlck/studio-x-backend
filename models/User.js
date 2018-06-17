@@ -28,6 +28,14 @@ class User {
         this.name = name;
     }
     
+    updateFriends(friends) {
+        
+        if (!Array.isArray(friends))
+            throw new Error("Argument sent is not an array");
+        
+        this.friends = friends;
+    }
+    
     updateGameState(gameState) {
         this.game_state.update(gameState.gamesPlayed, gameState.score);
     }
