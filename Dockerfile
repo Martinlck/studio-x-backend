@@ -22,4 +22,6 @@ RUN npm i -g pm2@2.6.0 minimatch@latest \
 
 RUN npm rebuild
 
+RUN npx actionhero generate
+
 CMD ["pm2-docker", "start", "-i", "0", "./node_modules/.bin/actionhero"]
