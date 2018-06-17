@@ -50,12 +50,16 @@ class UserManager {
         
         for (let result of resultSet ) {
             let u = new User(result);
-            users.push(u);
+            // We can do this here so we dont loop through it again to sanitize
+            // Also because the only places where we use this function is related to the friends and we follow the specs of example response.
+            users.push({
+                id : u.id,
+                highscore: u.game_state.score,
+                name: u.name
+            });
         }
         
         return users;
-        
-        
     }
 }
 

@@ -20,7 +20,7 @@ describe('Save friends for the specific user', () => {
         let response =  await api.specHelper.runAction('create_user', {name:"John"});
         mainUserID = response.user.id;
     });
-    test('should properly fetch game state from user', async  () => {
+    test('should properly save friends for the user', async  () => {
         await api.specHelper.runAction('save_friends', {userID:mainUserID, friends: JSON.stringify(friendIds)});
         let userManager = new UserManager();
         let userUpdated = await userManager.fetchUser(mainUserID);
@@ -37,5 +37,5 @@ describe('Save friends for the specific user', () => {
 
 
 
-// e06400dd-c48a-4760-96c3-35fcfbe9baac
+//
 //
