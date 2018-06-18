@@ -30,6 +30,14 @@ Root endpoint will be:
 http://localhost/api/
 ```
 
+Stop stack
+
+```
+sh environment.sh stop
+```
+
+### Examples: 
+
 Example usage : Create a user
 
 ```
@@ -38,13 +46,12 @@ POST http://localhost/api/user
 
 Example usage: Put a game state:
 
-* [Postman image](https://raw.githubusercontent.com/Martinlck/studio-x-backend/master/PUT-example.png)
+* [Postman image](https://github.com/Martinlck/studio-x-backend/blob/master/PUT-gamestate.png)
 
-Stop stack
+Example usage: Put friends (Will only work if the userIDs sent exists):
 
-```
-sh environment.sh stop
-```
+* [Postman image](https://github.com/Martinlck/studio-x-backend/blob/master/PUT-friends.png)
+
 
 ## Running the integration tests
 
