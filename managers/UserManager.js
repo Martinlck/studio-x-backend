@@ -35,6 +35,10 @@ class UserManager {
     async fetchUser(userID) {
         let key  = User.generateKey(userID);
         let userEntity = await api.datastore.getAsync(key);
+        
+        if(!userEntity)
+            throw new Error("There is no user with ID: " + userID);
+        
         return new User(userEntity);
     }
     
