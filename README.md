@@ -113,6 +113,17 @@ For such simple data structures, we only use one kind which is Users.
 Inside this kind we manage our User entities, which have attached a list of friends and a gamestate.
 Since GameState is such a simple structure, it would not need a further entity to represent, but we still model it on our OOP approach.
 
+## Suggested Improvements
+
+- Improve API to store game state, by just incrementing the gamesPlayed everytime is called. And possibly saving all the scores, computing the highscore only when needed on other requests (friends requests)
+- Improve user creation API, by adding geo location and storing the country of the user.
+- Improve API to store friends, do not send the new list of friends to replace all. But use ACID transactions to add or remove friends, This will require a different data structure setup than the current.
+- Add security to the API server, it needs to have signed request headers and hashes to make them safe, under some specific algorithm defined with the front end developer
+- Add an API to retrieve all the user information, including the name, right now only game state can be retrieved.
+- Improve the get all users API, by paginating it with limit and offsets, allowing the client to go through the whole DB even if is huge. Provide smart filters to this list based on score, country, name, etc...
+
+ 
+
 
 
 
