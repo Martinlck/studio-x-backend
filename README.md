@@ -38,10 +38,7 @@ POST http://localhost/api/user
 
 Example usage: Put a game state:
 
-```
-![alt text](http://url/to/img.png)
-
-```
+* [Postman image](https://raw.githubusercontent.com/Martinlck/studio-x-backend/master/PUT-example.png)
 
 Stop stack
 
