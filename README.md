@@ -1,6 +1,6 @@
 # Studio X backend
 
-Solution for the second case where we need a fast, robust and reliable REST service, ready to be used in a production environment for simple game.
+Example solution for the server engineering deliverable system required to scale our prototypes 
 
 ## Getting Started
 
@@ -81,21 +81,13 @@ When writing the configuration files for the services of k8s, we need to pass do
 
 ## Built With
 
-* [Actionhero](https://www.actionherojs.com/) - The framework used
-* [Google cloud datastore](https://cloud.google.com/datastore/docs/) - Database of choice
+* [Actionhero](https://www.actionherojs.com/) - Open source framework used
+* [Google cloud datastore](https://cloud.google.com/datastore/docs/) - Cloud provider of choice
 
 
 ## The reason behind the Framework
 
-Actionhero is used by big companies like Riot Games, Samsung, Taskrabbit etc..
-
-Few open source contributions done to Actionhero by me:
-
-- Diagnosis : https://github.com/actionhero/actionhero/issues/1207
-- Solution  : https://github.com/actionhero/actionhero/pull/1210
-
-- Diagnosis : https://github.com/actionhero/actionhero/issues/1149
-- Solution  : https://github.com/actionhero/actionhero/pull/1152
+Actionhero is used by big companies like Riot Games, Samsung, Taskrabbit etc...
 
 This framework helps writing clean code, for REST mapping and has full support from contributors, which makes the best choice for addressing a Case 2 of the exercise
 
@@ -113,7 +105,7 @@ For such simple data structures, we only use one kind which is Users.
 Inside this kind we manage our User entities, which have attached a list of friends and a gamestate.
 Since GameState is such a simple structure, it would not need a further entity to represent, but we still model it on our OOP approach.
 
-## Suggested Improvements
+## Suggested roadmap
 
 - Improve API to store game state, by just incrementing the gamesPlayed everytime is called. And possibly saving all the scores, computing the highscore only when needed on other requests (friends requests)
 - Improve user creation API, by adding geo location and storing the country of the user.
