@@ -89,7 +89,7 @@ When writing the configuration files for the services of k8s, we need to pass do
 
 Actionhero is used by big companies like Riot Games, Samsung, Taskrabbit etc...
 
-This framework helps writing clean code, for REST mapping and has full support from contributors, which makes the best choice for addressing a Case 2 of the exercise
+This framework helps writing clean code, for REST mapping and has full support from contributors, which makes the best choice for addressing a backend server need.
 
 ## Code organization
 
