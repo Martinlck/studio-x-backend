@@ -21,7 +21,7 @@
     "@google-cloud/datastore": "^1.4.0",
     "actionhero": "^19.0.2",
     "bluebird": "^3.5.1",
-    "jest": "^23.1.0",
+    "jest": "^29.3.1",
     "uuid": "^3.2.1"
   }
 }
