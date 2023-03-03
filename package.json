@@ -19,7 +19,7 @@
   "homepage": "https://github.com/Martinlck/studio-x-backend#readme",
   "dependencies": {
     "@google-cloud/datastore": "^1.4.0",
-    "actionhero": "^19.0.2",
+    "actionhero": "^28.3.1",
     "bluebird": "^3.5.1",
     "jest": "^23.1.0",
     "uuid": "^3.2.1"
